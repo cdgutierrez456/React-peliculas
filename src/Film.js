@@ -1,4 +1,4 @@
-function Pelicula(props) {
+function Film(props) {
   return (
     <div className="movie-item-style-2">
       <img src={props.img} alt="" />
@@ -21,4 +21,4 @@ function Pelicula(props) {
   )
 }
 
-export default Pelicula;
+export default Film;
