@@ -3,10 +3,9 @@ import './App.css';
 import Film from './Film';
 import PageWrapper from './PageWrapper';
 import {films} from './FilmsData'
+import Pagination from './Pagination';
  
 function App() {
-
-  
 
   return (
     <PageWrapper>
@@ -24,6 +23,14 @@ function App() {
           />
         );
       })}
+
+      <Pagination 
+        page={2}
+        total={5}
+        onChange={(pagina) => {
+          alert(pagina)
+        }}
+      />
 
     </PageWrapper>
   );
