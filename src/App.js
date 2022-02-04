@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
 import Film from './Film';
 import PageWrapper from './PageWrapper';
@@ -6,6 +6,8 @@ import {films} from './FilmsData'
 import Pagination from './Pagination';
  
 function App() {
+
+  const [actualPage, setActualPage] = useState(1);
 
   return (
     <PageWrapper>
@@ -25,10 +27,10 @@ function App() {
       })}
 
       <Pagination 
-        page={2}
+        page={actualPage}
         total={5}
-        onChange={(pagina) => {
-          alert(pagina)
+        onChange={(page) => {
+          setActualPage(page)
         }}
       />
 
