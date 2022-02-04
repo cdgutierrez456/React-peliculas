@@ -9,9 +9,23 @@ function App() {
 
   const [actualPage, setActualPage] = useState(1);
 
+  const TOTAL_BY_PAGE = 4;
+  const loadFilms = () => {
+    let filmsByPage = films.slice(
+      (actualPage - 1) * TOTAL_BY_PAGE, 
+      actualPage * TOTAL_BY_PAGE
+    )
+    return filmsByPage
+  }
+
+  const getTotalPages = () => {
+    let totalAmountFilms = films.length
+    return Math.ceil(totalAmountFilms / TOTAL_BY_PAGE);
+  }
+
   return (
     <PageWrapper>
-      {films.map(film => {
+      {loadFilms().map(film => {
         return (
           <Film 
             img={film.img}
@@ -28,7 +42,7 @@ function App() {
 
       <Pagination 
         page={actualPage}
-        total={5}
+        total={getTotalPages()}
         onChange={(page) => {
           setActualPage(page)
         }}
