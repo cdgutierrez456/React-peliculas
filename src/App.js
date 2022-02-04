@@ -8,8 +8,24 @@ import Pagination from './Pagination';
 function App() {
 
   const [actualPage, setActualPage] = useState(1);
-
+  // const [films, setFilms] = useState([]);
   const TOTAL_BY_PAGE = 4;
+
+  // const searchFilms = async () => {
+  //   let url = 'https://lucasmoy.dev/data/react/peliculas.json'
+  //   let response = await fetch(url, {
+  //     "method": "GET",
+  //     "mode": "no-cors",
+  //     "headers": {
+  //       "Accept": "application/json",
+  //       "Content-Type": "application/json",
+  //       "Origin": "https://lucasmoy.dev/"
+  //     }
+  //   })
+  //   let json = await response.json()
+  //   setFilms(JSON.parse(json))
+  // }
+
   const loadFilms = () => {
     let filmsByPage = films.slice(
       (actualPage - 1) * TOTAL_BY_PAGE, 
@@ -25,6 +41,7 @@ function App() {
 
   return (
     <PageWrapper>
+      
       {loadFilms().map(film => {
         return (
           <Film 
